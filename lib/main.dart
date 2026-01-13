@@ -4,5 +4,3 @@ import 'app.dart';
 void main() {
   runApp(MaterialApp(home: const MyApp(), debugShowCheckedModeBanner: false));
 }
-
-

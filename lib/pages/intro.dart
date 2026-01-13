@@ -16,25 +16,25 @@ class Intro extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => LevelsScreen(money: 0, level: 0,)),
+        child: TweenAnimationBuilder<double>(
+          duration: Duration(seconds: 5),
+          tween: Tween(begin: 0, end: 1),
+          builder: (context, value, _) {
+            return LinearProgressIndicator(
+              borderRadius: BorderRadius.all(Radius.circular(12)),
+              value: value, // Value between 0.0 and 1.0
+              backgroundColor: Colors.grey[300],
+              valueColor: AlwaysStoppedAnimation<Color>(Colors.deepPurple),
+              minHeight: 24, // Adjust the thickness of the line
             );
           },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(255, 84, 212, 88),
-            minimumSize: Size(double.infinity, 50),
-          ),
-          child: Text(
-            "Let's play",
-            style: TextStyle(
-              fontWeight: FontWeight.w900,
-              fontSize: 40,
-              color: Colors.white,
-            ),
-          ),
+          onEnd: () {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => LevelsScreen(money: 0, level: 0,)),
+              (Route<dynamic> route) => false,
+            );
+          },
         ),
       ),
     );
