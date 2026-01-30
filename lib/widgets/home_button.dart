@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/logic/data.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeButton extends StatelessWidget {
   final int money;
@@ -18,13 +18,7 @@ class HomeButton extends StatelessWidget {
       padding: EdgeInsets.only(right: 10.0),
       child: IconButton(
         onPressed: () {
-          Navigator.pop(
-            context,
-            Data(
-              money: money,
-              levelNumber: maxLevel <= levelNumber ? levelNumber : maxLevel,
-            ),
-          );
+          context.pop();
         },
         icon: Icon(Icons.home, size: 30),
       ),

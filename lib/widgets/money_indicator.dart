@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/logic/provider.dart';
+import 'package:provider/provider.dart';
 
 class MoneyIndicator extends StatelessWidget {
-  final int money;
-  const MoneyIndicator({super.key, required this.money});
+  const MoneyIndicator({super.key});
 
   @override
   Widget build(BuildContext context) {
+    int money = Provider.of<MainProvider>(context).money;
     return TweenAnimationBuilder<int>(
       tween: IntTween(begin: 0, end: money),
       duration: const Duration(milliseconds: 800),

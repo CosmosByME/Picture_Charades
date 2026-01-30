@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/levels_page.dart';
+import 'package:go_router/go_router.dart';
 
 class Intro extends StatelessWidget {
   const Intro({super.key});
@@ -29,11 +29,7 @@ class Intro extends StatelessWidget {
             );
           },
           onEnd: () {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => LevelsScreen(money: 0, level: 0,)),
-              (Route<dynamic> route) => false,
-            );
+            context.pushReplacement('/levels');
           },
         ),
       ),

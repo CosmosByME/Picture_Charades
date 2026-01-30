@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/logic/data.dart';
+import 'package:go_router/go_router.dart';
+// import 'package:myapp/logic/data.dart';
 // import 'package:myapp/pages/intro.dart';
 import 'package:myapp/logic/levels.dart';
-import 'package:myapp/pages/game.dart';
+import 'package:myapp/logic/provider.dart';
+// import 'package:myapp/pages/game.dart';
 import 'package:myapp/widgets/money_indicator.dart';
+import 'package:provider/provider.dart';
 
 class LevelsScreen extends StatefulWidget {
-  final int money;
-  final int level;
-  const LevelsScreen({super.key, required this.money, required this.level});
+  const LevelsScreen({super.key});
 
   @override
   State<LevelsScreen> createState() => _LevelsScreenState();
@@ -22,29 +23,8 @@ class _LevelsScreenState extends State<LevelsScreen> {
   void initState() {
     super.initState();
     levelsList = levels;
-    money = widget.money;
-    level = widget.level;
-  }
-
-  Future<void> getting(int index) async {
-    final Data? result = await Navigator.push<Data>(
-      context,
-      MaterialPageRoute(
-        builder: (context) => GameScreen(
-          maxLevel: level,
-          levelNumber: index,
-          money: money,
-          currentLevel: levelsList[index],
-        ),
-      ),
-    );
-
-    if (result != null) {
-      setState(() {
-        money = result.money;
-        level = result.levelNumber;
-      });
-    }
+    money = Provider.of<MainProvider>(context, listen: false).money;
+    level = Provider.of<MainProvider>(context, listen: false).level;
   }
 
   @override
@@ -70,7 +50,7 @@ class _LevelsScreenState extends State<LevelsScreen> {
               backgroundColor: Colors.transparent,
               clipBehavior: Clip.antiAliasWithSaveLayer,
               centerTitle: true,
-              title: MoneyIndicator(money: money),
+              title: MoneyIndicator(),
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
@@ -79,7 +59,10 @@ class _LevelsScreenState extends State<LevelsScreen> {
                   return GestureDetector(
                     onTap: () {
                       if (index <= level) {
-                        getting(index);
+                        context.go(
+                          '/levels/${index + 1}/game',
+                          extra: levelsList[index],
+                        );
                       }
                     },
                     child: Card(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/logic/levels.dart';
+import 'package:myapp/logic/provider.dart';
 import 'package:myapp/widgets/dropping_place.dart';
 import 'package:myapp/widgets/frame.dart';
 import 'package:myapp/widgets/hint.dart';
@@ -7,17 +8,12 @@ import 'package:myapp/widgets/home_button.dart';
 import 'package:myapp/widgets/level_indicator.dart';
 import 'package:myapp/widgets/money_indicator_for_game.dart';
 import 'package:myapp/widgets/options_bar.dart';
+import 'package:provider/provider.dart';
 
 class GameScreen extends StatefulWidget {
-  final int maxLevel;
-  final int levelNumber;
-  final int money;
   final Level currentLevel;
   const GameScreen({
     super.key,
-    required this.levelNumber,
-    required this.maxLevel,
-    required this.money,
     required this.currentLevel,
   });
 
@@ -40,9 +36,9 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     super.initState();
     setState(() {});
-    moneyInGame = widget.money;
-    levelNumber = widget.levelNumber;
-    maxLevel = widget.maxLevel;
+    moneyInGame = Provider.of<MainProvider>(context).money;
+    levelNumber = Provider.of<MainProvider>(context).currentIndex;
+    maxLevel = Provider.of<MainProvider>(context).level;
     firstImage = widget.currentLevel.firstImage;
     secondImage = widget.currentLevel.secondImage;
     hint = widget.currentLevel.hint;
@@ -80,7 +76,7 @@ class _GameScreenState extends State<GameScreen> {
         clipBehavior: Clip.antiAliasWithSaveLayer,
         centerTitle: true,
         leading: LevelIndicator(levelNumber: levelNumber),
-        title: MoneyIndicatorForGame(money: moneyInGame),
+        title: MoneyIndicatorForGame(),
         actions: [
           IconButton(onPressed: restart, icon: Icon(Icons.replay))
           ,HomeButton(

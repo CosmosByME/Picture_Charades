@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/logic/provider.dart';
+import 'package:provider/provider.dart';
 
 class MoneyIndicatorForGame extends StatelessWidget {
-  final int money;
-  const MoneyIndicatorForGame({super.key, required this.money});
+  const MoneyIndicatorForGame({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class MoneyIndicatorForGame extends StatelessWidget {
           Image.asset("assets/images/coin.png", width: 24),
           const SizedBox(width: 6),
           Text(
-            "\$ $money",
+            "\$ ${Provider.of<MainProvider>(context).money}",
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
