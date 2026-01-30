@@ -7,7 +7,6 @@ import 'package:myapp/pages/intro.dart';
 import 'package:myapp/pages/levels_page.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'app.dart';
 
 GoRouter router = GoRouter(
   routes: [
@@ -53,6 +52,6 @@ class MyWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: const MyApp(), debugShowCheckedModeBanner: false);
+    return MaterialApp.router(routerConfig: router, debugShowCheckedModeBanner: false,);
   }
 }

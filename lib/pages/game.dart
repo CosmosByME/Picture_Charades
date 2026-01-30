@@ -35,7 +35,6 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void initState() {
     super.initState();
-    setState(() {});
     moneyInGame = Provider.of<MainProvider>(context).money;
     levelNumber = Provider.of<MainProvider>(context).currentIndex;
     maxLevel = Provider.of<MainProvider>(context).level;

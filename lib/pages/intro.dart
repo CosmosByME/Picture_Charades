@@ -29,7 +29,7 @@ class Intro extends StatelessWidget {
             );
           },
           onEnd: () {
-            context.pushReplacement('/levels');
+            context.go('/levels');
           },
         ),
       ),
