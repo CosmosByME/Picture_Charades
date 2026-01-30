@@ -4,17 +4,10 @@ import 'package:shared_preferences/shared_preferences.dart';
 class MainProvider extends ChangeNotifier {
   final SharedPreferencesWithCache storage;
   MainProvider({required this.storage});
-  int _currentIndex = 0;
   int _money = 0;
   int _level = 0;
-  int get currentIndex {
-    return _currentIndex;
-  }
 
-  void updateIndex(int newIndex) {
-    _currentIndex = newIndex;
-    notifyListeners();
-  }
+  
 
   int get money {
     return storage.getInt('money') ?? _money;

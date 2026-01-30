@@ -6,14 +6,12 @@ class FailButton extends StatelessWidget {
   final int moneyInGame;
   final Level level;
   final int levelNumber;
-  final int maxLevel;
 
   const FailButton({
     super.key,
     required this.moneyInGame,
     required this.level,
-    required this.levelNumber,
-    required this.maxLevel, required this.restart,
+    required this.levelNumber, required this.restart,
   });
 
   @override

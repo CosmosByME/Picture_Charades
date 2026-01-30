@@ -24,7 +24,6 @@ class GameScreen extends StatefulWidget {
 class _GameScreenState extends State<GameScreen> {
   late int moneyInGame;
   late int levelNumber;
-  late int maxLevel;
   late Image firstImage;
   late Image secondImage;
   late String hint;
@@ -35,9 +34,8 @@ class _GameScreenState extends State<GameScreen> {
   @override
   void initState() {
     super.initState();
-    moneyInGame = Provider.of<MainProvider>(context).money;
-    levelNumber = Provider.of<MainProvider>(context).currentIndex;
-    maxLevel = Provider.of<MainProvider>(context).level;
+    moneyInGame = Provider.of<MainProvider>(context, listen: false).money;
+    levelNumber = widget.currentLevel.id;
     firstImage = widget.currentLevel.firstImage;
     secondImage = widget.currentLevel.secondImage;
     hint = widget.currentLevel.hint;
@@ -79,9 +77,6 @@ class _GameScreenState extends State<GameScreen> {
         actions: [
           IconButton(onPressed: restart, icon: Icon(Icons.replay))
           ,HomeButton(
-            money: moneyInGame,
-            maxLevel: maxLevel,
-            levelNumber: levelNumber,
           ),
         ],
       ),
@@ -110,7 +105,6 @@ class _GameScreenState extends State<GameScreen> {
               options: options,
               droppedLetters: droppedLetters,
               levelNumber: levelNumber,
-              maxLevel: maxLevel,
               moneyInGame: moneyInGame,
               currentLevel: widget.currentLevel,
             ),

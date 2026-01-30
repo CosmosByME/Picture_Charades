@@ -8,7 +8,7 @@ Future<void> success({
   required int moneyInGame,
   required BuildContext context,
 }) async {
-  final Data? result = await showDialog<Data>(
+  await showDialog<Data>(
     barrierDismissible: false,
     context: context,
     builder: (context) {
@@ -43,8 +43,4 @@ Future<void> success({
       );
     },
   );
-
-  if (result != null) {
-    Navigator.pop(context, result);
-  }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Level {
+  final int id;
   final Image firstImage;
   final Image secondImage;
   final int firstWord;
@@ -12,6 +13,7 @@ class Level {
   final int hintForSecondWord;
 
   const Level({
+    required this.id,
     required this.firstImage,
     required this.secondImage,
     required this.firstWord,
@@ -26,6 +28,7 @@ class Level {
 
 List<Level> levels = [
   Level(
+    id: 0,
     firstImage: Image.asset('assets/images/monday.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/keyhole.png', fit: BoxFit.cover),
     firstWord: 6,
@@ -37,6 +40,7 @@ List<Level> levels = [
     hintForSecondWord: 3, // KEY
   ),
   Level(
+    id: 1,
     firstImage: Image.asset('assets/images/carpet.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/enter.png', fit: BoxFit.cover),
     firstWord: 6,
@@ -48,6 +52,7 @@ List<Level> levels = [
     hintForSecondWord: 5, // ENTER
   ),
   Level(
+    id: 2,
     firstImage: Image.asset('assets/images/sunset.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/flow.png', fit: BoxFit.cover),
     firstWord: 6,
@@ -60,6 +65,7 @@ List<Level> levels = [
   ),
 
   Level(
+    id: 3,
     firstImage: Image.asset('assets/images/notebook.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/ice.png', fit: BoxFit.cover),
     firstWord: 8,
@@ -71,6 +77,7 @@ List<Level> levels = [
     hintForSecondWord: 3, // ICE
   ),
   Level(
+    id: 4,
     firstImage: Image.asset('assets/images/classroom.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/mate.png', fit: BoxFit.cover),
     firstWord: 9,
@@ -82,6 +89,7 @@ List<Level> levels = [
     hintForSecondWord: 4, // MATE
   ),
   Level(
+    id: 5,
     firstImage: Image.asset('assets/images/forecast.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/arm.png', fit: BoxFit.cover),
     firstWord: 8,
@@ -93,6 +101,7 @@ List<Level> levels = [
     hintForSecondWord: 3, // ARM
   ),
   Level(
+    id: 6,
     firstImage: Image.asset('assets/images/headphone.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/ache.png', fit: BoxFit.cover),
     firstWord: 9,
@@ -104,6 +113,7 @@ List<Level> levels = [
     hintForSecondWord: 4, // ACHE
   ),
   Level(
+    id: 7,
     firstImage: Image.asset('assets/images/keyboard.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/ring.png', fit: BoxFit.cover),
     firstWord: 8,
@@ -115,6 +125,7 @@ List<Level> levels = [
     hintForSecondWord: 4, // RING
   ),
   Level(
+    id: 8,
     firstImage: Image.asset('assets/images/starship.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/fish.png', fit: BoxFit.cover),
     firstWord: 8,
@@ -126,6 +137,7 @@ List<Level> levels = [
     hintForSecondWord: 4, // FISH
   ),
   Level(
+    id: 9,
     firstImage: Image.asset('assets/images/cupboard.png', fit: BoxFit.cover),
     secondImage: Image.asset('assets/images/cake.png', fit: BoxFit.cover),
     firstWord: 8,

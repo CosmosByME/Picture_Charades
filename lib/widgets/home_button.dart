@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeButton extends StatelessWidget {
-  final int money;
-  final int maxLevel;
-  final int levelNumber;
   const HomeButton({
-    super.key,
-    required this.money,
-    required this.maxLevel,
-    required this.levelNumber,
+    super.key
   });
 
   @override

@@ -19,7 +19,14 @@ class SuccessButton extends StatelessWidget {
         final int newMoney = moneyInGame + (levelNumber + 1) * 100;
         Provider.of<MainProvider>(context, listen: false).updateMoney(newMoney);
         final int newLevel = levelNumber + 1;
-        Provider.of<MainProvider>(context, listen: false).updateLevel(newLevel);
+        if (newLevel >=
+            Provider.of<MainProvider>(context, listen: false).level) {
+          Provider.of<MainProvider>(
+            context,
+            listen: false,
+          ).updateLevel(newLevel);
+        }
+        context.pop();
         context.pop();
       },
       style: ElevatedButton.styleFrom(backgroundColor: Colors.blue),

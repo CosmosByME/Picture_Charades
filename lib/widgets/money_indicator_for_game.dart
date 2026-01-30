@@ -20,7 +20,7 @@ class MoneyIndicatorForGame extends StatelessWidget {
           Image.asset("assets/images/coin.png", width: 24),
           const SizedBox(width: 6),
           Text(
-            "\$ ${Provider.of<MainProvider>(context).money}",
+            "\$ ${Provider.of<MainProvider>(context, listen: false).money}",
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,

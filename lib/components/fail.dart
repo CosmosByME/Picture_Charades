@@ -9,7 +9,6 @@ void fail({
   required int moneyInGame,
   required Level currentLevel,
   required int levelNumber,
-  required int maxLevel,
 }) {
   showDialog(
     barrierDismissible: false,
@@ -42,7 +41,6 @@ void fail({
                 moneyInGame: moneyInGame,
                 level: currentLevel,
                 levelNumber: levelNumber,
-                maxLevel: maxLevel,
               ),
             ],
           ),

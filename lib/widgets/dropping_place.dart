@@ -11,7 +11,6 @@ class DroppingPlace extends StatefulWidget {
   final List<String?> options;
   final List<String?> droppedLetters;
   final int levelNumber;
-  final int maxLevel;
   final int moneyInGame;
   final Level currentLevel;
 
@@ -21,7 +20,6 @@ class DroppingPlace extends StatefulWidget {
     required this.options,
     required this.droppedLetters,
     required this.levelNumber,
-    required this.maxLevel,
     required this.moneyInGame,
     required this.currentLevel,
     required this.restart,
@@ -66,7 +64,6 @@ class _DroppingPlaceState extends State<DroppingPlace> {
                         moneyInGame: widget.moneyInGame,
                         currentLevel: widget.currentLevel,
                         levelNumber: widget.levelNumber,
-                        maxLevel: widget.maxLevel,
                       );
                     }
                   }
