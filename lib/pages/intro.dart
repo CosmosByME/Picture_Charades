@@ -17,7 +17,7 @@ class Intro extends StatelessWidget {
           ),
         ),
         child: TweenAnimationBuilder<double>(
-          duration: Duration(seconds: 5),
+          duration: Duration(seconds: 3),
           tween: Tween(begin: 0, end: 1),
           builder: (context, value, _) {
             return LinearProgressIndicator(
